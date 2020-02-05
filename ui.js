@@ -6,7 +6,6 @@ class UI {
         this.feelsLike =    document.getElementById('w-feels-like');
         this.location =     document.getElementById('w-location');
         this.humidity =     document.getElementById('w-humidity');
-        this.details =      document.getElementById('w-details');
         this.sunrise =      document.getElementById('w-sunrise');
         this.sunset =       document.getElementById('w-sunset');
         this.wind =         document.getElementById('w-wind');
@@ -21,9 +20,17 @@ class UI {
         this.feelsLike.textContent      = `Feels like: ${weather.main.feels_like} °C`;
         this.location.textContent       = weather.name + ', ' + weather.sys.country;
         this.humidity.textContent       = `Humidity: ${weather.main.humidity} %`;
-        this.sunrise.textContent        = `Sunrise: ${weather.sys.sunrise}`;
-        this.sunset.textContent         = `Sunset: ${weather.sys.sunset}`;
+        this.sunrise.textContent        = `Sunrise: ${this.formatTime(weather.sys.sunrise)} o'clock`;
+        this.sunset.textContent         = `Sunset: ${this.formatTime(weather.sys.sunset)} o'clock`;
         this.wind.textContent           = `Wind: ${weather.wind.speed} m/sec.`;
         this.icon.setAttribute('src', `https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`);
+    }
+
+    //returns unix timestamp in HH:MM
+    formatTime(timestamp) {
+        let date = new Date(timestamp * 1000);
+        let hours = date.getHours();
+        let minutes = "0" + date.getMinutes();
+        return hours + ':' + minutes.substr(-2);
     }
 }
