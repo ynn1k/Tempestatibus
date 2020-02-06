@@ -11,36 +11,59 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-md-5 mx-auto shadow-lg bg-light border mt-5 p-5 rounded-lg">
-                <h1 id="w-location"></h1>
+            <div class="col-12 mt-3">
+                <header class="text-center">
+                    <h1>Tempestatibus</h1>
+                </header>
+            </div>
+            <div class="col-sm-12 col-md-8 col-lg-6 mx-auto shadow-lg bg-light border mt-sm-5 py-5 py-sm-0 p-sm-5 rounded-lg">
+                <h2 id="w-location"></h2>
                 <hr>
                 <div class="row">
-                    <div class="col-4 align-self-center">
+                    <div class="col-sm-4 align-self-center">
                         <img id="w-icon" class="bg-white rounded-circle border border-info">
                     </div>
-                    <div class="col-8">
-                        <h2 id="w-descMain"></h2>
-                        <h3 id="w-desc"></h3>
-                        <h2 id="w-string"></h2>
+                    <div class="col-sm-8">
+                        <h3 id="w-descMain"></h3>
+                        <h4 id="w-desc"></h4>
+                        <h3><span id="w-string"></span> °C</h3>
                     </div>
                 </div>
                 <hr>
-                <ul class="list-group mt-3 border-info">
-                    <li class="list-group-item border-info" id="w-feels-like"></li>
-                    <li class="list-group-item border-info" id="w-humidity"></li>
-                    <li class="list-group-item border-info" id="w-wind"></li>
-                    <li class="list-group-item border-info" id="w-sunrise"></li>
-                    <li class="list-group-item border-info" id="w-sunset"></li>
-                </ul>
+                <table class="table table-hover table-borderless table-dark mt-3 rounded-lg">
+                    <tbody>
+                    <tr>
+                        <th scope="row">Feels like:</th>
+                        <td><span id="w-feels-like"></span> °C</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Humidity:</th>
+                        <td><span id="w-humidity"></span> %</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Wind speed:</th>
+                        <td><span id="w-wind"></span> m/sec.</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Sunrise:</th>
+                        <td><span id="w-sunrise"></span> o'clock</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Sunset:</th>
+                        <td><span id="w-sunset"></span> o'clock</td>
+                    </tr>
+                    </tbody>
+                </table>
+
                 <hr>
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#locModal">
-                    Change Location
+                    Change location
                 </button>
                 <div class="modal fade" id="locModal" tabindex="-1" role="dialog" aria-labelledby="locModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="locModalLabel">Choose Location</h5>
+                                <h5 class="modal-title" id="locModalLabel">Choose location</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -49,7 +72,7 @@
                                 <form id="w-form">
                                     <div class="form-group">
                                         <label for="city">City</label>
-                                        <input type="text" id="city" class="form-control">
+                                        <input type="text" placeholder="e.g. 'Berlin'" id="city" class="form-control">
                                     </div>
                                 </form>
                             </div>
