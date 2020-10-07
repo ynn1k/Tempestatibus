@@ -24,6 +24,7 @@ class UI {
         this.sunset.textContent =           this.formatTime(weather.sys.sunset);
         this.wind.textContent =             weather.wind.speed;
         this.icon.setAttribute('src', `https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`);
+        this.updateFavicon(weather.weather[0].icon);
     }
 
     //returns unix timestamp in HH:MM
@@ -33,4 +34,13 @@ class UI {
         let minutes = "0" + date.getMinutes();
         return hours + ':' + minutes.substr(-2);
     }
+
+    updateFavicon(weatherIcon) {
+        let link = document.querySelector("link[rel*='icon']") || document.createElement('link');
+        link.type = 'image/x-icon';
+        link.rel = 'shortcut icon';
+        link.href = `https://openweathermap.org/img/wn/${weatherIcon}.png`;
+        document.getElementsByTagName('head')[0].appendChild(link);
+    }
 }
+
