@@ -1,5 +1,5 @@
 # Tempestatibus
-Messing around with the openweathermap.org API - [live demo](https://yannik.dev/github/tempestatibus/)  
+Messing around with the openweathermap.org API
 This is a small project of my #100DaysOfCode challenge and is oriented on a 'tutorial'.
 
 ## TODO / Ideas:
